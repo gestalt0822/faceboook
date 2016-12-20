@@ -4,4 +4,6 @@
   <p>投稿者：<%= topic.name %>さん</p>
   <p>タイトル：<%= topic.title %></p>
   <p>内容：<%= topic.content %></p>
+  <%= link_to '削除', topic_path(topic), method: :delete %>
+  <%= link_to '詳細', topic_path(topic) %>
 <% end %>

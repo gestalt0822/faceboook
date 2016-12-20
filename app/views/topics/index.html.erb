@@ -1,1 +1,7 @@
-<h1>投稿一覧</h1>
+<h2>投稿一覧</h2>
+
+<% @topics.each do |topic| %>
+  <p>投稿者：<%= topic.name %>さん</p>
+  <p>タイトル：<%= topic.title %></p>
+  <p>内容：<%= topic.content %></p>
+<% end %>

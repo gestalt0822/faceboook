@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<header>
+  <ul>
+    <li><%= link_to '投稿一覧', topics_path %></li>
+    <li><%= link_to '新規投稿', new_topic_path %></li>
+  </ul>
+</header>
+
 <%= yield %>
 
 </body>

@@ -8,11 +8,20 @@
 </head>
 <body>
 
-<header>
-  <ul>
-    <li><%= link_to '投稿一覧', topics_path %></li>
-    <li><%= link_to '新規投稿', new_topic_path %></li>
-  </ul>
+<header id="header">
+  <h1 id="title">faceboook</h1>
+
+  <div class="dropdown" id="dropdown_navi">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><%= link_to '投稿一覧', topics_path %></li>
+      <li><%= link_to '新規投稿', new_topic_path %></li>
+      <li role="separator" class="divider"></li>
+    </ul>
+ </div>
 </header>
 
 <%= yield %>

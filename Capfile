@@ -1,8 +1,20 @@
 # Load DSL and set up stages
-require "capistrano/setup"
+
 
 # Include default deployment tasks
-require "capistrano/deploy"
+
+
+
+require 'capistrano/setup'
+require 'capistrano/deploy'
+require 'capistrano/rbenv'
+require 'capistrano/bundler'
+require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
+require 'capistrano3/unicorn'
+
+# taskを記述したファイルを読み込むよう設定。　場所と拡張子を指定。
+Dir.glob('lib/capistrano/tasks/*.rb').each { |r| import r }
 
 # Include tasks from other gems included in your Gemfile
 #

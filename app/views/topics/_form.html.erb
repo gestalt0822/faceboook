@@ -1,4 +1,14 @@
 <%= form_for(@topic) do |f| %>
+  <% if @topic.errors.any? %>
+    <div id="error_explonation">
+      <h2><%= @topic.errors.count %>件のエラーがあります</h2>
+      <ul>
+        <% @topic.errors.full_messages.each do |msg| %>
+          <li class="error_msg"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.label :名前 %>
 　<%= f.text_field :name, class: 'form-control'  %><br />
   <%= f.label :タイトル %>

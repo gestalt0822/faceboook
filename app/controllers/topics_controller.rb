@@ -4,7 +4,6 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all
-    @user = current_user
   end
 
   def new
@@ -13,6 +12,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @topic.user_id = current_user.id
     if @topic.save
       redirect_to topics_path, notice: "投稿しました！"
     else
@@ -38,7 +38,7 @@ class TopicsController < ApplicationController
 
   private
     def topic_params
-      params.require(:topic).permit(:title, :content)
+      params.require(:topic).permit(:title, :content, :name)
     end
 
     def set_topic

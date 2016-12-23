@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all
+    @user = current_user
   end
 
   def new
@@ -37,7 +38,7 @@ class TopicsController < ApplicationController
 
   private
     def topic_params
-      params.require(:topic).permit(:title, :content, :name)
+      params.require(:topic).permit(:title, :content)
     end
 
     def set_topic

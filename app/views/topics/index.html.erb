@@ -6,7 +6,7 @@
     <% @topics.each do |topic| %>
       <div class="post">
         <h3 class="topic_title">タイトル：<%= topic.title %></h3>
-        <p>投稿者：<%= topic.name %>さん</p>
+        <p>投稿者：<%= @user.name %>さん</p>
         <p>内容：<%= topic.content %></p>
         <%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default btn-sm btn btn-success' %>
         <%= link_to '詳細', topic_path(topic) , class: 'btn btn-default btn-sm btn btn-primary'%>

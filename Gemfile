@@ -37,6 +37,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
+  gem 'better_errors'
 end
 gem 'twitter-bootstrap-rails'
 gem 'devise'

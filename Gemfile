@@ -47,4 +47,8 @@ gem 'unicorn'
 gem 'therubyracer', platforms: :ruby
 group :development do
   gem 'letter_opener_web'
+  gem 'dotenv-rails'
 end
+
+gem 'carrierwave'
+gem 'rmagick'

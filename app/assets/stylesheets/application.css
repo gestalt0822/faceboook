@@ -62,3 +62,7 @@
   list-style-type: none;
   color: red;
 }
+
+img{
+  max-width: 100%;
+}

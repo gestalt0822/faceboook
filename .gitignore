@@ -13,3 +13,6 @@
 /tmp
 
 vendor/bundle/
+
+#dotenv-rails
+.env

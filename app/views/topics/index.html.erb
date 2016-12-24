@@ -12,10 +12,11 @@
             <%= image_tag topic.user.image_url, size: '50x50', class: 'avatar' %>
           <% end %>
           <b><%= topic.user.name %>さん</b>が投稿しました
+          <span class="when"><%= topic.created_at.strftime("%y年%m月%d日 %p %l：%M") %></span>
         </p>
         <h3 class="topic_title">タイトル：<%= topic.title %></h3>
 
-        <p>内容：<%= topic.content %></p>
+        <p><%= topic.content %></p>
         <%= link_to '詳細', topic_path(topic) , class: 'btn btn-default btn-xs btn btn-primary'%>
         <% if topic.user_id == current_user.id %>
           <%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default btn-xs btn btn-success' %>

@@ -31,11 +31,21 @@
 
 #title{
     font-size: 15px;
-    color: #fff;
     height: 50px;
     padding: 30px 0px 0px 20px;
     margin: 0px;
     float:left;
+}
+
+#title a{
+    color: #fff;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#title a:hover{
+  text-decoration: none;
 }
 
 #dropdown_navi{

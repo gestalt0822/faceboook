@@ -5,13 +5,22 @@
 
     <% @topics.each do |topic| %>
       <div class="post">
-        <p><%= image_tag topic.user.avatar, size: '50x50', class: 'avatar' %><b><%= topic.user.name %>さん</b>が投稿しました</p>
+        <p>
+          <% if topic.user.provider.blank? %>
+            <%= image_tag topic.user.avatar, size: '50x50', class: 'avatar' %>
+          <% else %>
+            <%= image_tag topic.user.image_url, size: '50x50', class: 'avatar' %>
+          <% end %>
+          <b><%= topic.user.name %>さん</b>が投稿しました
+        </p>
         <h3 class="topic_title">タイトル：<%= topic.title %></h3>
 
         <p>内容：<%= topic.content %></p>
-        <%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default btn-xs btn btn-success' %>
         <%= link_to '詳細', topic_path(topic) , class: 'btn btn-default btn-xs btn btn-primary'%>
-        <%= link_to '削除', topic_path(topic), method: :delete, class: 'btn btn-default btn-xs btn-danger' %>
+        <% if topic.user_id == current_user.id %>
+          <%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default btn-xs btn btn-success' %>
+          <%= link_to '削除', topic_path(topic), method: :delete, class: 'btn btn-default btn-xs btn-danger' %>
+        <% end %>
       </div>
     <% end %>
   </div>

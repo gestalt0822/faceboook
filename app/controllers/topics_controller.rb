@@ -21,19 +21,26 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    unless @topic.user_id == current_user.id
+      redirect_to root_path, notice: "自分の投稿以外は編集出来ません！"
+    end
   end
 
   def update
-    @topic.update(topic_params)
-    redirect_to topics_path
+    if @topic.user.id == current_user.id
+      @topic.update(topic_params)
+      redirect_to topics_path
+    end
   end
 
   def show
   end
 
   def destroy
-    @topic.destroy
-    redirect_to topics_path
+    if @topic.user.id == current_user.id
+      @topic.destroy
+      redirect_to topics_path
+    end
   end
 
   private

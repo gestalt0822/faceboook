@@ -53,3 +53,6 @@ end
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   root 'tops#index'
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
   resources :relationships, only: [:create, :destroy]
 
   if Rails.env.development?

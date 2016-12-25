@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
         name:  auth.info.nickname,
         provider: auth.provider,
         uid: auth.uid,
-        email: auth.info.email ||= "#{auth.uid}}-#{auth.provider}@example.com",
+        email: auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
         image_url: auth.info.image,
         password: Devise.friendly_token[0, 20]
       )

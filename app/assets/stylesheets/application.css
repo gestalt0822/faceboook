@@ -88,3 +88,15 @@ img{
   font-size: 10px;
   color: #999;
 }
+
+.each_user{
+  background-color: #fff;
+  height: 180px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 10px;
+}
+
+.email{
+  font-size: 10px;
+}

@@ -1,10 +1,17 @@
 <div class="container">
   <h2>ユーザー一覧</h2>
   <% @users.each do |user| %>
-    <div class="container-child col-md-2 col-sm-4 col-xs-6">
-      <%= profile_img(user) %>
-      <%= user.email %>
-      <%= render 'follow_form', user: user %>
-    </div>
+    <% unless user.id == current_user.id %>
+      <div class="container-child col-md-2 col-sm-4 col-xs-6 each_user">
+        <% if user.provider.blank? %>
+          <p><%= image_tag user.avatar, size: '70x70' %></p>
+        <% else %>
+          <p><%= image_tag user.image_url, size: '70x70' %></p>
+        <% end %>
+        <p class="email"><%= user.email %></p>
+        <%= link_to '詳細', user_path(user.id) , class: 'btn btn-default btn-xs btn btn-primary'%>
+        <%= render 'follow_form', user: user %>
+      </div>
+    <% end %>
   <% end %>
 </div>

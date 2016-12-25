@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <h2><%= @user.name %>さんがフォローしているユーザー</h2>
+    <% @mentors.each do |mentor| %>
+      <div class="container-child col-md-2 col-sm-4 col-xs-6 each_user">
+        <% if mentor.followed.provider.blank? %>
+          <p><%= image_tag mentor.followed.avatar, size: '70x70' %></p>
+        <% else %>
+          <p><%= image_tag mentor.followed.image_url, size: '70x70' %></p>
+        <% end %>
+        <p><%= mentor.followed.name %></p>
+        <p class="email"><%= mentor.followed.email %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <h2><%= @user.name %>さんをフォローしているユーザー</h2>
+    <% @fans.each do |fan| %>
+      <div class="container-child col-md-2 col-sm-4 col-xs-6 each_user">
+        <% if fan.follower.provider.blank? %>
+          <p><%= image_tag fan.follower.avatar, size: '70x70' %></p>
+        <% else %>
+          <p><%= image_tag fan.follower.image_url, size: '70x70' %></p>
+        <% end %>
+        <p><%= fan.follower.name %></p>
+        <p class="email"><%= fan.follower.email %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

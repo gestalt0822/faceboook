@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-  resources :topics
+  resources :topics do
+    resources :comments
+  end
+
   root 'tops#index'
 
   if Rails.env.development?

@@ -1,23 +1,21 @@
 <p id="notice"><%= notice %></p>
-<div class="child row">
-  <div class="container">
-    <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
-      <h2>詳細ページ</h2>
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <div class="post">
+      <h2>投稿詳細ページ</h2>
 
-      <p class="left"><strong>タイトル</strong></p>
+      <p class="topic_title"><strong>タイトル</strong></p>
       <p class="left"><%= @topic.title %></p>
-      <p class="left"><strong>内容</strong></p>
-      <p class="left"><%= @topic.content %></p>
-      <p class="right">
-        <strong>作成時間：</strong>
-        <%= @topic.created_at.strftime("%y年%m月%d日 %p %l時%M分") %>
-      </p>
+      <p class="topic_title"><strong>内容</strong></p>
+      <p class="letf"><%= @topic.content %></p>
+      <p class="topic_title"><strong>作成時間：</strong></p>
+      <p class="left"><%= @topic.created_at.strftime("%y年%m月%d日 %p %l時%M分") %></p><br />
 
-      <p>コメント一覧<p>
+      <h3 class="topic_title">コメント一覧</h3>
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: {comments: @comments, topic: @topic} %>
-      </div>
-      <%= render partial: 'comments/form', locals: {comment: @comment, topic: @topic} %>
+      </div><br /><br />
+      <%= render partial: 'comments/form', locals: {comment: @comment, topic: @topic} %><br />
       <% if current_user.id == @topic.user_id %>
         <%= link_to '編集', edit_topic_path(@topic) %>｜
       <% end %>

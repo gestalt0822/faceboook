@@ -6,7 +6,10 @@
     <% end %>
   <% else %>
     <%= form_for(current_user.mentors.find_by(followed_id:user.id), html: {method: :delete}, remote: true) do |f| %>
-      <%= f.submit "フォロー解除", class: "btn btn-xs" %>
+      <%= f.submit "フォロー解除", class: "btn btn-xs" %><br />
+      <% if current_user.followed?(user) && current_user.following?(user) %>
+        <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

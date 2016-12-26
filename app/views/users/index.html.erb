@@ -12,9 +12,6 @@
         <p class="email"><%= user.email %></p>
         <%= link_to '詳細', user_path(user.id) , class: 'btn btn-default btn-xs btn btn-primary'%>
         <%= render 'follow_form', user: user %>
-        <% if current_user.followed?(user) && current_user.following?(user) %>
-          <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
-        <% end %>
       </div>
     <% end %>
   <% end %>

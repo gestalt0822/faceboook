@@ -5,15 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-10.times do |n|
-  name =  Faker::Name.name
-  email = Faker::Internet.email
-  password = "password"
-  user= User.create!(
-               name: name,
-               email: email,
-               password: password,
-               password_confirmation: password,
-               )
-              user.skip_confirmation!
+
+
+n = 1
+while n <= 10
+  Topic.create(
+    title: "Dive into Coooooode #{n}",
+    user_id: 13,
+    content: "#{n}回目のテスト投稿"
+    )
+    n = n + 1
 end

@@ -96,14 +96,35 @@ img{
 
 .each_user{
   background-color: #fff;
-  height: 230px;
+  height: 250px;
   border: 1px solid #ccc;
   margin: 5px;
-  padding: 10px;
+  padding: 15px;
+}
+
+.each_user ul{
+  list-style-type: none;
+  padding: 0px 0px 10px 0px;
+}
+
+.each_user li{
+  margin: 0px 0px 5px 0px;
 }
 
 .email{
   font-size: 10px;
+}
+
+.user_detail{
+}
+
+.follow_button{
+  margin: 0px 0px 5px 0px;
+}
+
+.message_link{
+  font-size: 13px;
+  padding: 0px 0px 0px 5px;
 }
 
 .comments{

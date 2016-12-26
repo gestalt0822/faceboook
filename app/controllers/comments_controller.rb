@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = Comment.find(params[:id])
-    @topic = @comment.topic
-    redirect_to topic_path(topic)
+    @topic = Topic.find(params[:topic_id])
+    @comment = @topic.comments.build
+    @comments = @topic.comments
   end
 
   def destroy

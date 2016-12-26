@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
     mentors.find_by(followed_id: other_user.id)
   end
 
+  def followed?(other_user)
+    fans.find_by(follower_id: other_user.id)
+  end
+
   def unfollow!(other_user)
     mentors.find_by(followed_id: other_user.id).destroy
   end

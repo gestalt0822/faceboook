@@ -1,26 +1,26 @@
 <div class="container">
   <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <h2><%= @conversation.recipient.name %>さんとのやりとり</h2><br />
 
-<% if @over_ten %>
-  <%= link_to '以前のメッセージ', '?m=all' %>
-<% end %>
-
-<div class="ui segment">
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-      <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= user.name %></strong><%= message.message_time %></div>
-          <div class="list">
-            <div class="item">
-              <i class="right triangle icon"></i>
-              <%= message.body %>
-            </div>
-          </div>
-        </div>
-      </div>
+    <% if @over_ten %>
+      <%= link_to '以前のメッセージ', '?m=all' %>
     <% end %>
+
+    <div class="ui segment">
+      <% @messages.each do |message| %>
+        <% if message.body %>
+          <% user = User.find(message.user_id) %>
+          <div class="comment">
+            <% if user.provider.blank? %>
+              <%= image_tag user.avatar, size: '40x40', class: 'avatar' %>
+            <% else %>
+              <%= image_tag user.image_url, size: '40x40', class: 'avatar' %>
+            <% end %>
+            <strong><%= user.name %></strong>さん
+            <span class="when"><%= message.message_time %></span><br />
+　　　　　　  <p><%= message.body %></p>
+          </div>
+      <% end %>
   <% end %>
 </div>
 
@@ -29,7 +29,7 @@
   <div class="field">
     <%= f.text_area :body, class: "form-control" %>
   </div>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %><br />
   <div>
     <%= f.submit "メッセージを送る", class: 'btn btn-primary btn-block' %>
   </div>

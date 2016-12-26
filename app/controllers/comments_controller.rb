@@ -13,6 +13,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+    @topic = @comment.topic
+    redirect_to topic_path(topic)
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     @topic = @comment.topic

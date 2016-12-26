@@ -6,10 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 10.times do |n|
+  name =  Faker::Name.name
   email = Faker::Internet.email
   password = "password"
-  User.create!(email:email,
+  user= User.create!(
+               name: name,
+               email: email,
                password: password,
                password_confirmation: password,
                )
+              user.skip_confirmation!
 end

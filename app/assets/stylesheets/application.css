@@ -127,14 +127,24 @@ img{
   padding: 0px 0px 0px 5px;
 }
 
-.comments{
-  padding-top: 5px;
-  margin: 0px 0px 10px 0px;
-}
-
 .comment{
   margin: 0px 0px 15px 0px;
   padding: 15px;
   background-color: #9cf;
   border-radius: 10px;
+}
+
+.message_guest{
+  margin: 0px 50px 15px 0px;
+  padding: 15px;
+  background-color: #fc9;
+  border-radius: 10px;
+}
+
+.message_you{
+  margin: 0px 0px 15px 50px;
+  padding: 15px;
+  background-color: #9cf;
+  border-radius: 10px;
+  text-align: right;
 }

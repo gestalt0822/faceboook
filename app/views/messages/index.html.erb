@@ -10,31 +10,34 @@
       <% @messages.each do |message| %>
         <% if message.body %>
           <% user = User.find(message.user_id) %>
-          <div class="comment">
-            <% if user.provider.blank? %>
-              <%= image_tag user.avatar, size: '40x40', class: 'avatar' %>
-            <% else %>
-              <%= image_tag user.image_url, size: '40x40', class: 'avatar' %>
-            <% end %>
-            <strong><%= user.name %></strong>さん
-            <span class="when"><%= message.message_time %></span><br />
-　　　　　　  <p><%= message.body %></p>
-          </div>
+          <% if user.id == current_user.id %>
+            <div class="message_you">
+          <% else %>
+            <div class="message_guest">
+          <% end %>
+              <% if user.provider.blank? %>
+                <%= image_tag user.avatar, size: '40x40', class: 'avatar' %>
+              <% else %>
+                <%= image_tag user.image_url, size: '40x40', class: 'avatar' %>
+              <% end %>
+              <strong><%= user.name %></strong>さん
+              <span class="when"><%= message.message_time %></span><br />
+　　　　　　    <p><%= message.body %></p>
+            </div>
+         <% end %>
       <% end %>
-  <% end %>
-</div>
+    </div>
 
-<div class="post">
-<%= form_for [@conversation, @message], html: {class: "un reply form"} do |f| %>
-  <div class="field">
-    <%= f.text_area :body, class: "form-control" %>
+    <div class="post">
+      <%= form_for [@conversation, @message], html: {class: "un reply form"} do |f| %>
+        <div class="field">
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden" %><br />
+        <div>
+          <%= f.submit "メッセージを送る", class: 'btn btn-primary btn-block' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %><br />
-  <div>
-    <%= f.submit "メッセージを送る", class: 'btn btn-primary btn-block' %>
-  </div>
-<% end %>
-</div>
-
-</div>
 </div>

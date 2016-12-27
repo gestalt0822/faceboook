@@ -14,9 +14,16 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:topic_id])
-    @comment = @topic.comments.build
-    @comments = @topic.comments
+    @topic = Topic.find(params[:id])
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+    @topic = @comment.topic
+    redirect_to topic_path(@topic)
   end
 
   def destroy

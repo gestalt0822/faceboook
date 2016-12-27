@@ -19,7 +19,6 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @topic = Topic.find(params[:id])
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
     @topic = @comment.topic

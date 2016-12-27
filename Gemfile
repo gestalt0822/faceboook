@@ -40,11 +40,13 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
 end
+
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'unicorn'
 gem 'therubyracer', platforms: :ruby
+
 group :development do
   gem 'letter_opener_web'
   gem 'dotenv-rails'

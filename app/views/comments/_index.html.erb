@@ -4,20 +4,20 @@
       <div class="comment">
         <p class="left">
           <% if topic.user.provider.blank? %>
-            <%= image_tag topic.user.avatar, size: '40x40', class: 'avatar' %>
+            <%= image_tag comment.user.avatar, size: '40x40', class: 'avatar' %>
           <% else %>
-            <%= image_tag topic.user.image_url, size: '40x40', class: 'avatar' %>
+            <%= image_tag comment.user.image_url, size: '40x40', class: 'avatar' %>
           <% end %>
           <%= comment.user.name %>さん
           <span class="when"><%= topic.created_at.strftime("%y年%m月%d日 %p %l：%M") %></span>
         </p>
-          <p class="left"><%= comment.content %></p>
-          <% if current_user.id == comment.user.id %>
+        <p class="left"><%= comment.content %></p>
+        <% if current_user.id == comment.user.id %>
           <p class="right when">
             <%= link_to '編集', edit_topic_comment_path(topic, comment) %>
             <%= link_to '削除', topic_comment_path(topic, comment), method: :delete, remote: true, data: {confirm: '本当に削除していいですか？'} %>
           </p>
-          <% end %>
+        <% end %>
       </div>
     <% end %>
   <% end %>

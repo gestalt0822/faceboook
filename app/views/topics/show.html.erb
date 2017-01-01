@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
-  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+  <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+    <p id="notice"><%= notice %></p>
     <div class="post">
       <h2>投稿詳細ページ</h2>
 
@@ -8,7 +8,7 @@
       <p>
         <% if @topic.user.provider.present? %>
           <%= image_tag @topic.user.image_url, size: '50x50', class: 'avatar' %>
-        <% elsif @topic.avatar.present? %>
+        <% elsif @topic.user.avatar.present? %>
           <%= image_tag @topic.user.avatar, size: '50x50', class: 'avatar' %>
         <% else %>
           <%= image_tag  'no_image.png', size: '50x50', class: 'avatar' %>

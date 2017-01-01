@@ -3,10 +3,12 @@
     <% unless comment.id.nil? %>
       <div class="comment">
         <p class="left">
-          <% if topic.user.provider.blank? %>
-            <%= image_tag comment.user.avatar, size: '40x40', class: 'avatar' %>
+          <% if comment.user.provider.present? %>
+            <%= image_tag comment.user.image_url, size: '50x50', class: 'avatar' %>
+          <% elsif comment.user.avatar.present? %>
+            <%= image_tag comment.user.avatar, size: '50x50', class: 'avatar' %>
           <% else %>
-            <%= image_tag comment.user.image_url, size: '40x40', class: 'avatar' %>
+            <%= image_tag  'no_image.png', size: '50x50', class: 'avatar' %>
           <% end %>
           <%= comment.user.name %>さん
           <span class="when"><%= topic.created_at.strftime("%y年%m月%d日 %p %l：%M") %></span>

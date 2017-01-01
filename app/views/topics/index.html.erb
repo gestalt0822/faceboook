@@ -7,10 +7,12 @@
         <div class="post">
           <p>
             <!--mail登録(ユーザー画像あり)、SNS登録、mail登録(ユーザー画像なし）)を分類-->
-            <% if topic.user.provider.blank? %>
+            <% if topic.user.provider.present? %>
+              <%= image_tag topic.user.image_url, size: '50x50', class: 'avatar' %>
+            <% elsif topic.avatar.present? %>
               <%= image_tag topic.user.avatar, size: '50x50', class: 'avatar' %>
             <% else %>
-              <%= image_tag topic.user.image_url, size: '50x50', class: 'avatar' %>
+              <%= image_tag  'no_image.png', size: '50x50', class: 'avatar' %>
             <% end %>
             <b><%= topic.user.name %>さん</b>が投稿しました
             <span class="when"><%= topic.created_at.strftime("%y年%m月%d日 %p %l：%M") %></span>

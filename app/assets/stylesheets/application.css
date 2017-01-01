@@ -148,3 +148,8 @@ img{
   border-radius: 10px;
   text-align: right;
 }
+
+.commets_number{
+  margin: 10px 0px 0px 0px;
+  font-size:12px;
+}

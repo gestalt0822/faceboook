@@ -25,6 +25,14 @@
             <%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default btn-xs btn btn-success' %>
             <%= link_to '削除', topic_path(topic), method: :delete, class: 'btn btn-default btn-xs btn-danger' %>
           <% end %>
+          <% if topic.comments.count >= 1 %>
+            <p class="commets_number">
+              <% unless topic.comments.last.user.id == topic.user.id %>
+              <%= topic.comments.last.user.name %>さん他、
+              <% end %>
+              <%= topic.comments.count %>件の<%= link_to 'コメント', topic_path(topic) %>があります
+            </p>
+          <% end %>
         </div>
       <% end %>
     <% end %>

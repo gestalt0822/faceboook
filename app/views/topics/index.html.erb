@@ -1,6 +1,6 @@
 <div class="container">
   <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
-    <h2>投稿一覧</h2>
+    <%= render partial: 'new' %>
     <% @topics.each do |topic| %>
       <!--自分の投稿か、フォローし合っているユーザーの投稿のみ表示(model/user.rb)-->
       <% if current_user.followed?(topic.user) && current_user.following?(topic.user) || current_user.id == topic.user_id %>

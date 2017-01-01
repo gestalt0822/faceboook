@@ -1,25 +1,25 @@
-
-  <div class="col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
-    <h2>メッセージ一覧</h2>
-    <% @conversations.each do |conversation| %>
-      <% if conversation.target_user(current_user).present? %>
-        <div class="col-sm-6 col-xs-12">
-          <div class="each_user">
-            <% if conversation.target_user(current_user).provider.present? %>
-              <%= image_tag conversation.target_user(current_user).image_url, size: '50x50', class: 'avatar' %>
-            <% elsif conversation.target_user(current_user).avatar.present? %>
-              <%= image_tag conversation.target_user(current_user).avatar, size: '50x50', class: 'avatar' %>
-            <% else %>
-              <%= image_tag  'no_image.png', size: '50x50', class: 'avatar' %>
-            <% end %>
-            <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation) %>さんとのやりとり
-          </div>
+<div class="col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
+  <h2>メッセージ一覧</h2>
+  <% if @conversations.count == 0 %>
+    <h3 class="nothing">なし</h3>
+  <% end %>
+  <% @conversations.each do |conversation| %>
+    <% if conversation.target_user(current_user).present? %>
+      <div class="col-sm-6 col-xs-12">
+        <div class="each_user">
+          <% if conversation.target_user(current_user).provider.present? %>
+            <%= image_tag conversation.target_user(current_user).image_url, size: '50x50', class: 'avatar' %>
+          <% elsif conversation.target_user(current_user).avatar.present? %>
+            <%= image_tag conversation.target_user(current_user).avatar, size: '50x50', class: 'avatar' %>
+          <% else %>
+            <%= image_tag  'no_image.png', size: '50x50', class: 'avatar' %>
+          <% end %>
+          <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation) %>さんとのやりとり
         </div>
-      <% else %>
-        <h3 class="nothing">無し</h3>
-      <% end %>
+      </div>
     <% end %>
-    <div class="links">
-      <%= link_to '投稿一覧へ', topics_path %>
-    </div>
-  </div>
+  <% end %>
+</div>
+<div class="links">
+  <%= link_to 'ユーザー一覧へ', users_path %>
+</div>

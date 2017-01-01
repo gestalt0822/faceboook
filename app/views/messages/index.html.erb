@@ -15,10 +15,12 @@
           <% else %>
             <div class="message_guest">
           <% end %>
-              <% if user.provider.blank? %>
+              <% if user.provider.present? %>
+                <%= image_tag user.image_url, size: '40x40', class: 'avatar' %>
+              <% elsif user.avatar.present? %>
                 <%= image_tag user.avatar, size: '40x40', class: 'avatar' %>
               <% else %>
-                <%= image_tag user.image_url, size: '40x40', class: 'avatar' %>
+                <%= image_tag  'no_image.png', size: '40x40', class: 'avatar' %>
               <% end %>
               <strong><%= user.name %></strong>さん
               <span class="when"><%= message.message_time %></span><br />
@@ -40,7 +42,8 @@
       <% end %>
     </div>
     <div class="links">
-      <%= link_to 'ユーザー一覧へ', users_path %>
+      <%= link_to 'ユーザー一覧へ', users_path %>｜
+      <%= link_to 'メッセージ一覧へ', conversations_path %>
     </div>
   </div>
 </div>

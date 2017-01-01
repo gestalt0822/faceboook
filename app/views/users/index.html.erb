@@ -1,24 +1,26 @@
-<div class="container">
-  <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+<div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
     <h2>ユーザー一覧</h2>
     <% @users.each do |user| %>
       <% unless user.id == current_user.id %>
-        <div class="col-md-3 col-sm-4 col-xs-6 each_user">
-          <% if user.provider.present? %>
-            <p><%= image_tag user.image_url, size: '70x70' %></p>
-          <% elsif user.avatar.present? %>
-            <p><%= image_tag user.avatar, size: '70x70' %></p>
-          <% else %>
-            <p><%= image_tag  'no_image.png', size: '70x70' %></p>
-          <% end %>
-          <ul>
-            <li><b><%= user.name %></b>さん</li>
-            <li><span class="email"><%= user.email %></span></li>
-            <li><%= link_to '詳細', user_path(user.id) , class: 'btn btn-default btn-xs btn btn-primary user_detail'%></li>
-            <li><%= render 'follow_form', user: user %></li>
-          </ul>
+        <div class="col-sm-6 col-xs-12 ">
+          <div class="each_user">
+            <% if user.provider.present? %>
+              <%= image_tag user.image_url, size: '90x90' %>
+            <% elsif user.avatar.present? %>
+              <%= image_tag user.avatar, size: '90x90' %>
+            <% else %>
+              <%= image_tag  'no_image.png', size: '90x90' %>
+            <% end %>
+            <ul class="user_detail">
+              <li><b><%= user.name %></b>さん</li>
+              <li><span class="email"><%= user.email %></span></li>
+            </ul>
+            <ul class="user_action">
+              <li><%= link_to '詳細', user_path(user.id) , class: 'btn btn-default btn-xs btn btn-primary user_detail'%></li>
+              <li><%= render 'follow_form', user: user %></li>
+            </ul>
+          </div>
         </div>
       <% end %>
     <% end %>
-  </div>
-</div>
+<div calss="container">

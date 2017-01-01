@@ -97,15 +97,33 @@ img{
 
 .each_user{
   background-color: #fff;
-  height: 250px;
   border: 1px solid #ccc;
-  margin: 5px;
-  padding: 15px;
+  margin: 30px 0px 0px 0px;
+  padding: 10px 0px 10px 10px;
+  overflow: hidden;
 }
 
-.each_user ul{
+.each_user img{
+  float: left;
+}
+
+ul.user_detail{
+  width: 160px;
+  height: 90px;
   list-style-type: none;
-  padding: 0px 0px 10px 0px;
+  margin:0px 0px 0px 15px;
+  padding: 0px;
+  float: left;
+  overflow: hidden;
+}
+
+ul.user_action{
+  width: 90px;
+  height: 90px;
+  list-style-type: none;
+  margin:0px 0px 0px 5px;
+  padding: 10px 0px 0px 0px;
+  float: left;
 }
 
 .each_user li{

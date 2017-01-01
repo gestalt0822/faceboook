@@ -1,4 +1,6 @@
-
+<% if comments.count >= 1 %>
+  <h3 class="topic_title">コメント一覧</h3>
+<% end %>
   <% comments.each do |comment| %>
     <% unless comment.id.nil? %>
       <div class="comment">

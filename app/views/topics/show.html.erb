@@ -1,9 +1,8 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
     <p id="notice"><%= notice %></p>
+    <h2>投稿詳細ページ</h2>
     <div class="post">
-      <h2>投稿詳細ページ</h2>
-
       <p class="topic_title"><strong>投稿者</strong></p>
       <p>
         <% if @topic.user.provider.present? %>
@@ -22,15 +21,17 @@
       <p class="topic_title"><strong>投稿日時</strong></p>
       <p class="left"><%= @topic.created_at.strftime("%y年%m月%d日 %p %l時%M分") %></p><br />
 
-      <h3 class="topic_title">コメント一覧</h3>
+      
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: {comments: @comments, topic: @topic} %>
       </div><br /><br />
       <%= render partial: 'comments/form', locals: {comment: @comment, topic: @topic} %><br />
-      <% if current_user.id == @topic.user_id %>
-        <%= link_to '編集', edit_topic_path(@topic) %>｜
-      <% end %>
-      <%= link_to '戻る', topics_path %>
+      <div class="links">
+        <% if current_user.id == @topic.user_id %>
+          <%= link_to '編集', edit_topic_path(@topic) %>｜
+        <% end %>
+        <%= link_to '戻る', topics_path %>
+      </div>
     </div>
   </div>
 </div>

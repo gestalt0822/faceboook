@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+  <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
     <h2><%= @conversation.recipient.name %>さんとのやりとり</h2><br />
 
     <% if @over_ten %>
@@ -38,6 +38,9 @@
           <%= f.submit "メッセージを送る", class: 'btn btn-primary btn-block' %>
         </div>
       <% end %>
+    </div>
+    <div class="links">
+      <%= link_to 'ユーザー一覧へ', users_path %>
     </div>
   </div>
 </div>

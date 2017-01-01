@@ -2,14 +2,14 @@
     <h2>ユーザー一覧</h2>
     <% @users.each do |user| %>
       <% unless user.id == current_user.id %>
-        <div class="col-sm-6 col-xs-12 ">
+        <div class="col-sm-6 col-xs-12">
           <div class="each_user">
             <% if user.provider.present? %>
               <%= image_tag user.image_url, size: '90x90' %>
             <% elsif user.avatar.present? %>
               <%= image_tag user.avatar, size: '90x90' %>
             <% else %>
-              <%= image_tag  'no_image.png', size: '90x90' %>
+              <%= image_tag 'no_image.png', size: '90x90' %>
             <% end %>
             <ul class="user_detail">
               <li><b><%= user.name %></b>さん</li>

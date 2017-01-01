@@ -2,14 +2,20 @@
   <div class="row">
     <h2><%= @user.name %>さんがフォローしているユーザー</h2>
     <% @mentors.each do |mentor| %>
-      <div class="container-child col-md-2 col-sm-4 col-xs-6 each_user">
-        <% if mentor.followed.provider.blank? %>
-          <p><%= image_tag mentor.followed.avatar, size: '70x70' %></p>
-        <% else %>
-          <p><%= image_tag mentor.followed.image_url, size: '70x70' %></p>
-        <% end %>
-        <p><%= mentor.followed.name %></p>
-        <p class="email"><%= mentor.followed.email %></p>
+      <div class="col-sm-6 col-xs-12">
+        <div class="each_user">
+          <% if mentor.followed.provider.present? %>
+            <%= image_tag mentor.followed.image_url, size: '90x90' %>
+          <% elsif mentor.followed.avatar.present? %>
+            <%= image_tag mentor.followed.avatar, size: '90x90' %>
+          <% else %>
+            <%= image_tag 'no_image.png', size: '90x90' %>
+          <% end %>
+          <ul class="user_detail">
+            <li><%= mentor.followed.name %></li>
+            <li class="email"><%= mentor.followed.email %></li>
+          </ul>
+        </div>
       </div>
     <% end %>
   </div>
@@ -17,14 +23,20 @@
   <div class="row">
     <h2><%= @user.name %>さんをフォローしているユーザー</h2>
     <% @fans.each do |fan| %>
-      <div class="container-child col-md-2 col-sm-4 col-xs-6 each_user">
-        <% if fan.follower.provider.blank? %>
-          <p><%= image_tag fan.follower.avatar, size: '70x70' %></p>
-        <% else %>
-          <p><%= image_tag fan.follower.image_url, size: '70x70' %></p>
-        <% end %>
-        <p><%= fan.follower.name %></p>
-        <p class="email"><%= fan.follower.email %></p>
+      <div class="col-sm-6 col-xs-12">
+        <div class="each_user">
+          <% if fan.follower.provider.present? %>
+            <%= image_tag fan.follower.image_url, size: '90x90' %>
+          <% elsif fan.follower.avatar.present? %>
+            <%= image_tag fan.follower.avatar, size: '90x90' %>
+          <% else %>
+            <%= image_tag 'no_image.png', size: '90x90' %>
+          <% end %>
+          <ul class="user_detail">
+            <li><%= fan.follower.name %></li>
+            <li class="email"><%= fan.follower.email %></li>
+          </ul>
+        </div>
       </div>
     <% end %>
   </div>

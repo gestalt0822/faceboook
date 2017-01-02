@@ -78,12 +78,32 @@
   border-radius: 4px;
 }
 
+.post_index{
+  background-color: #fff;
+  margin: 20px 0px 10px 0px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form_post{
+  height: 100px;
+  vertical-align: text-top;
+}
+
+.form_post_index{
+  height: 50px;
+}
+
 .topic_title{
   color: orange;
   font-size: 17px;
   margin: 15px 0px 20px 0px;
 }
 
+.button-margin{
+  margin: 20px 0px 0px 0px;
+}
 .error_msg{
   list-style-type: none;
   color: red;
@@ -181,4 +201,8 @@ ul.user_action{
 .commets_number{
   margin: 10px 0px 0px 0px;
   font-size:12px;
+}
+
+.mypage img{
+  width: 160px;
 }

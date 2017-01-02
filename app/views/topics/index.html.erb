@@ -28,7 +28,7 @@
           <% if topic.comments.count >= 1 %>
             <p class="commets_number">
               <% unless topic.comments.last.user.id == topic.user.id %>
-              <%= topic.comments.last.user.name %>さん他、
+              <%= link_to topic.comments.last.user.name, user_path(topic.comments.last.user) %>さん他、
               <% end %>
               <%= topic.comments.count %>件の<%= link_to 'コメント', topic_path(topic) %>があります
             </p>

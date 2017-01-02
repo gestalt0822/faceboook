@@ -1,7 +1,33 @@
 <div class="container">
   <div class="row">
+    <h2><%= @user.name %>さんの詳細ページ</h2>
+    <div class="col-xs-12">
+      <div class="user_info">
+        <% if @user.provider.present? %>
+          <%= image_tag @user.image_url, size: '70x70' %>
+        <% elsif @user.avatar.present? %>
+          <%= image_tag @user.avatar, size: '70x70' %>
+        <% else %>
+          <%= image_tag  'no_image.png', size: '70x70' %>
+        <% end %><br /><br />
+        <ul>
+          <li>E-mail： <%= @user.email %></li>
+          <li>投稿数：<%= @post_number %></li>
+          <li>コメント数：<%= @comment_number %></li>
+          <li>フォロー数：<%= @mentors.count %></li>
+          <li>フォロワー数：<%= @fans.count %></li>
+        </ul><br />
+        <% unless current_user.following?(@user) %>
+          <p>
+            <%= @user.name %>さんを<%= link_to 'フォロー', users_path %>して、投稿を見たり、メッセージをやりとりしよう！
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <% if @mentors.count >= 1 %>
-      <h2><%= @user.name %>さんがフォローしているユーザー</h2>
+      <h3><b><%= @user.name %>さん</b>がフォローしているユーザー</h3>
     <% end %>
     <% @mentors.each do |mentor| %>
       <div class="col-sm-6 col-xs-12">
@@ -24,7 +50,7 @@
 
   <div class="row">
     <% if @fans.count >= 1 %>
-      <h2><%= @user.name %>さんをフォローしているユーザー</h2>
+      <h3><b><%= @user.name %>さん</b>をフォローしているユーザー</h3>
     <% end %>
     <% @fans.each do |fan| %>
       <div class="col-sm-6 col-xs-12">

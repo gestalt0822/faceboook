@@ -25,6 +25,10 @@
    text-align: center;
  }
 
+ h3{
+   margin: 0px 0px 20px 0px;
+ }
+
  h3.nothing{
    text-align: center;
  }
@@ -164,7 +168,18 @@ ul.user_action{
   font-size: 10px;
 }
 
-.user_detail{
+.user_info{
+  margin: 0px 0px 30px 0px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.user_info ul{
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
 }
 
 .follow_button{

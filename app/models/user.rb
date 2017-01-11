@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :fans, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :followed_users, through: :mentors, source: :followed
   has_many :followers, through: :fans,source: :follower
+  has_many :likes
+  has_many :favorites, through: :likes, source: :topic
   mount_uploader :avatar, AvatarUploader
 
   def follow!(other_user)
